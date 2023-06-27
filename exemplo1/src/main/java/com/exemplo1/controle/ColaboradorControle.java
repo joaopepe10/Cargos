@@ -1,21 +1,21 @@
 package com.exemplo1.controle;
 
-import com.exemplo1.modelo.Cargo;
-import com.exemplo1.repositorio.CargoRepositorio;
+import com.exemplo1.modelo.Colaborador;
+import com.exemplo1.repositorio.ColaboradorRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cargos")
+@RequestMapping("/colaboradores")
 public class ColaboradorControle {
     @Autowired
-    private CargoRepositorio cargo_repositorio;
+    private ColaboradorRepositorio colaborador_repositorio;
     @GetMapping("/listar")
-    public Iterable<Cargo> listar(){
-        return cargo_repositorio.findAll();
+    public Iterable<Colaborador> listar(){
+        return colaborador_repositorio.findAll();
     }
     @PostMapping("/cadastrar")
-    public Cargo cadastrar(@RequestBody Cargo obj){
-        return cargo_repositorio.save(obj);
+    public Colaborador cadastrar(@RequestBody Colaborador obj){
+        return colaborador_repositorio.save(obj);
     }
 }
